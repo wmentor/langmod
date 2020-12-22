@@ -12,30 +12,24 @@ import (
 	"github.com/wmentor/tokens"
 )
 
+const (
+	workSize int = 4
+)
+
 var (
 	loadMode    bool
-	debugMode   bool
 	limitOutput int
 	dataDir     string
-	chars       map[rune]bool
 )
 
 func init() {
-
-	chars = make(map[rune]bool)
-
-	for _, r := range "1234567890qwertyuiopasdfghjklzxcvbnm-'" {
-		chars[r] = true
-	}
-
 }
 
 func main() {
 
 	flag.StringVar(&dataDir, "data", "./data", "-data dir")
 	flag.BoolVar(&loadMode, "load", false, "load data mode")
-	flag.BoolVar(&debugMode, "debug", false, "debug mode")
-	flag.IntVar(&limitOutput, "limit-output", 100, "limit output words number")
+	flag.IntVar(&limitOutput, "output-size", 100, "limit output words number")
 
 	flag.Parse()
 
@@ -59,18 +53,8 @@ func generateData() {
 
 	tokens.Process(os.Stdin, func(t string) {
 
-		if t == "'" || t == "-" {
-			return
-		}
-
-		for _, r := range t {
-			if !chars[r] {
-				return
-			}
-		}
-
 		list = append(list, t)
-		if len(list) == 4 {
+		if len(list) == workSize {
 			list = list[1:]
 		}
 
@@ -109,7 +93,7 @@ func generateData() {
 		fmt.Print(w)
 
 		list = append(list, w)
-		if len(list) == 4 {
+		if len(list) == workSize {
 			list = list[1:]
 		}
 	}
@@ -121,23 +105,15 @@ func loadData() {
 
 	tokens.Process(os.Stdin, func(t string) {
 
-		if t == "'" || t == "-" {
+		if t == "\"" {
+			list = nil
 			return
 		}
 
-		for _, r := range t {
-			if !chars[r] {
-				return
-			}
-		}
-
 		list = append(list, t)
-		if len(list) == 4 {
+		if len(list) == workSize {
 			key := strings.Join(list, " ")
 			kv.Set([]byte(key), []byte("1"))
-			if debugMode {
-				fmt.Println(key)
-			}
 			list = list[1:]
 		}
 
