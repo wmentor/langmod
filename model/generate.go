@@ -1,7 +1,6 @@
 package model
 
 import (
-	"fmt"
 	"io"
 	"math/rand"
 	"strings"
@@ -50,10 +49,6 @@ func Generate(in io.Reader) []string {
 		}
 
 		w := items[0]
-
-		if i > 0 {
-			fmt.Print(" ")
-		}
 
 		result = append(result, w)
 

@@ -1,0 +1,19 @@
+{{ extends "base.jet" }}
+
+{{ block body() }}
+
+<h2>Enter phrase</h2>
+
+<form method="POST">
+<input type="text" style="WIDTH:400px;" value="{{ input }}" name="data"> <input type="submit" value="ENTER">
+</form>
+
+<p>
+<span class="COLOR:#080;">{{ input }}</span> {{ output }}
+</p>
+
+{{ end }}
+
+
+{{ block script() }}
+{{ end }}
