@@ -17,7 +17,7 @@ func main() {
 
 	var dataDir string
 	var listenAddr string
-	flag.StringVar(&dataDir, "data", "./data", "-data dir")
+	flag.StringVar(&dataDir, "data", "./data/en", "-data dir")
 	flag.StringVar(&listenAddr, "listen", ":8080", "listen address like 127.0.0.1:8080")
 	flag.Parse()
 

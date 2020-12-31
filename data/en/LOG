@@ -1,0 +1,16 @@
+=============== Dec 31, 2020 (MSK) ===============
+08:46:48.748987 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+08:46:48.793855 db@open opening
+08:46:48.797416 version@stat F·[] S·0B[] Sc·[]
+08:46:48.846299 db@janitor F·2 G·0
+08:46:48.846416 db@open done T·52.468254ms
+=============== Dec 31, 2020 (MSK) ===============
+09:02:13.388349 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+09:02:13.388671 version@stat F·[] S·0B[] Sc·[]
+09:02:13.388689 db@open opening
+09:02:13.388742 journal@recovery F·1
+09:02:13.389981 journal@recovery recovering @1
+09:02:15.955246 memdb@flush created L0@2 N·864580 S·16MiB "! '..ove,v680634":"，..•,v268860"
+09:02:15.957818 version@stat F·[1] S·16MiB[16MiB] Sc·[0.25]
+09:02:16.030909 db@janitor F·3 G·0
+09:02:16.030957 db@open done T·2.642327871s
