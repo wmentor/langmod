@@ -18,7 +18,7 @@ func main() {
 	var dataDir string
 	var listenAddr string
 	flag.StringVar(&dataDir, "data", "./data", "-data dir")
-	flag.StringVar(&listenAddr, "listen", "127.0.0.1:9000", "listen address like 127.0.0.1:9000")
+	flag.StringVar(&listenAddr, "listen", ":8080", "listen address like 127.0.0.1:8080")
 	flag.Parse()
 
 	if _, err := kv.Open("path=" + dataDir + " global=1"); err != nil {
